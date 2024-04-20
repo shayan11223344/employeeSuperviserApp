@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import AddEmployeeForm from './component/AddEmployeeForm';
+import ViewHierarchy from './component/ViewHierarchy';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function App() {
+const App = () => {
+  const [employees, setEmployees] = useState([]);
+
+  const handleAddEmployee = (data) => {
+    setEmployees([...employees, { id: employees.length + 1, ...data }]);
+  };
+
+  const handleDeleteRecord = (id) => {
+    toast.success('Empoyee deleted successfully ');
+    setEmployees(employees.filter((obj) => obj.id !== id));
+  }
+  const preEmployees = [...employees];
+  const handleSearch = (val) => {
+    if (val.length) {
+      const filtered = employees.filter((obj) => obj.employee.includes(val) || obj.supervisor.includes(val));
+      setEmployees(filtered)
+    }
+    else {
+      setEmployees(preEmployees)
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 style={{ textAlign: 'center' }}>Employee Management System</h1>
+      <AddEmployeeForm onSubmit={handleAddEmployee} />
+      <ViewHierarchy
+        hierarchy={employees}
+        handleDelete={handleDeleteRecord}
+        handleSearch={handleSearch}
+      />
+      <ToastContainer />
     </div>
   );
-}
+};
 
 export default App;
