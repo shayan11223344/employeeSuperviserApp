@@ -85,7 +85,7 @@ const App = () => {
         handleDelete={handleDeleteRecord}
         handleSearch={handleSearch}
       />
-      <ToastContainer />
+      <ToastContainer autoClose={1000}/>
     </div>
   );
 };
