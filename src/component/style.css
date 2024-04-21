@@ -1,14 +1,19 @@
+body{
+    overflow-x: hidden;
+}
 .add_employee_form {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 10px;
-    width: 300px;
+    width: 250px;
     margin: 20px auto;
+    padding: 0 20px;
 }
 
 .add_employee_form .input,
+
 .hierarchy_wrapper .search_bar {
     outline: none;
     border: none;
@@ -18,7 +23,7 @@
     width: 100%;
 }
 .hierarchy_wrapper .search_bar{
-    width: 300px;
+    width: 250px;
     margin-bottom: 10px;
 }
 
@@ -33,7 +38,7 @@
 }
 
 .hierarchy_wrapper {
-    padding: 20px 70px;
+    padding: 20px 20px;
 }
 
 .hierarchy_wrapper table {
@@ -41,6 +46,7 @@
     border-radius: 5px;
     width: 100%;
     padding-bottom: 10px;
+    overflow-x: scroll !important;
 }
 .hierarchy_wrapper table p{
     padding-left: 10px;
@@ -60,4 +66,27 @@
 
 .hierarchy_wrapper table tbody tr td .add_btn {
     background-color: red;
+}
+.table-container {
+    overflow-x: auto;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(218, 213, 213, 0.8); 
 }
