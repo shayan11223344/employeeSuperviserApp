@@ -60,6 +60,7 @@ const AddEmployeeForm = ({ onSubmit }) => {
                 className='input'
                 onChange={handleChange}
                 value={values.supervisor}
+               
             >
                 <option value="">Select Supervisor</option>
                 {supervisorData.map((obj) => (
